@@ -1,3 +1,11 @@
+:root {
+    --light-blue: #0891b2;
+    --dark-blue: #0c4a6e;
+    --transparent-white: rgba(255, 255, 255, 0.5);
+    --white: #fff;
+    --indigo: #1e1b4b;
+}
+
 *,
 *::before,
 *::after {
@@ -6,12 +14,45 @@
     box-sizing: border-box;
 }
 
-
 body {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url(images/bg-img.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: linear-gradient(to bottom, var(--light-blue), var(--dark-blue));
     min-height: 100vh;
     font-family: 'Nunito Sans', sans-serif;
 }
+
+/*GENERAL*/
+
+/*NAV*/
+
+.search-div {
+    position: relative;
+    display: inline-block;
+
+}
+
+#search-box {
+    padding: 8px 50px 5px 10px;
+    outline: none;
+    border-radius: 30px;
+    border: 3px solid transparent;
+    background-color: var(--indigo);
+}
+
+#search-box::placeholder {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#search-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--white);
+}
+
+
+/*MAIN*/
+
+/*FORECAST*/
