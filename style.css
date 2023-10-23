@@ -16,7 +16,6 @@
 
 body {
     background-image: linear-gradient(to bottom, var(--light-blue), var(--dark-blue));
-    min-height: 100vh;
     font-family: 'Nunito', sans-serif;
 }
 
@@ -31,17 +30,30 @@ button:hover {
     transition: all 0.3s;
 }
 
+.wrapper {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr minmax(0, 800px) 1fr;
+    grid-template-rows: 100px 1fr 70px;
+    grid-template-areas: 'header header header'
+        '. main .'
+        'footer footer footer';
+}
 
 /*NAV*/
 #nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 30px;
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 1fr 350px 1fr;
+    grid-template-areas: 'logo search buttons';
+    align-items: center;
+    padding: 0 20px;
 }
 
 .logo {
     display: flex;
     gap: 10px;
+    grid-area: logo;
 }
 
 .logo-text {
@@ -59,7 +71,7 @@ button:hover {
     position: relative;
     display: flex;
     justify-self: center;
-
+    grid-area: search;
 }
 
 #search-box {
@@ -67,7 +79,7 @@ button:hover {
     border-radius: 30px;
     border: 3px solid transparent;
     background-color: var(--indigo);
-    width: 300px;
+    width: 350px;
     color: var(--white);
     font-size: 16px;
     font-weight: 600;
@@ -94,6 +106,8 @@ button:hover {
 .temp-buttons {
     display: flex;
     gap: 10px;
+    grid-area: buttons;
+    justify-content: flex-end;
 }
 
 .temp-buttons>button {
@@ -111,5 +125,26 @@ button:hover {
 
 
 /*MAIN*/
+.main-container {
+    grid-area: main;
+}
 
-/*FORECAST*/
+
+/*FOOTER*/
+footer {
+    grid-area: footer;
+}
+
+
+/*media queries*/
+/*
+@media screen and (max-width: 1100px) {
+    #nav {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+
+}
+*/
