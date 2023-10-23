@@ -14,32 +14,50 @@
 </head>
 
 <body>
-  <nav id="nav">
-    <div class="logo">
-      <img src="images/favicon.png" alt="weather icon" class="logo-icon">
-      <p class="logo-text">Weather Wizard</p>
-    </div>
-    <div class="search-div">
-      <input type="search" name="search" id="search-box" autocomplete="off" placeholder="Search location">
-      <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
-    </div>
-    <div class="temp-buttons">
-      <button class="active">°C, m/s</button>
-      <button>°F, mph</button>
-    </div>
-  </nav>
+  <div class="wrapper">
+    <nav id="nav">
+      <div class="logo">
+        <img src="images/favicon.png" alt="weather icon" class="logo-icon">
+        <p class="logo-text">Weather Wizard</p>
+      </div>
+      <div class="search-div">
+        <input type="search" name="search" id="search-box" autocomplete="off" placeholder="Search City or Postcode">
+        <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
+      </div>
+      <div class="temp-buttons">
+        <button class="active">°C, m/s</button>
+        <button>°F, mph</button>
+      </div>
+    </nav>
 
-  <main>
+    <main class="main-container">
+      <section class="heading">
+        <h1>
+          <span class="data-city">Amsterdam</span>, <span class="data-country">Netherland</span>
+        </h1>
+        <p class="location-details data-time">
+          Monday 23 October 2023 | 11:38
+        </p>
+      </section>
+      <div class="weather">
 
-  </main>
+      </div>
 
-  <div class="forecast-container">
+      <div class="forecast">
+
+      </div>
+
+
+    </main>
+
+    <footer>
+
+    </footer>
 
   </div>
 
 
-
-
+  <!--
   <script>
     const API_KEY = '62021590287540d6818114957232210';
     const searchButton = document.getElementById('search-btn');
@@ -63,6 +81,7 @@
     }
 
   </script>
+  -->
 </body>
 
 </html>
