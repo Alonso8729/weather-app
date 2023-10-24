@@ -135,6 +135,7 @@ button:hover {
         'forecast forecast';
     display: grid;
     justify-items: center;
+    grid-template-columns: 2fr 1fr;
 }
 
 /*HEADING SECTION*/
@@ -192,9 +193,8 @@ button:hover {
 .properties {
     grid-area: properties;
     display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr 1fr;
-    column-gap: 15px;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
     max-height: 200px;
 }
 
