@@ -300,7 +300,7 @@ button:hover {
     color: var(--white);
 }
 
-.daily-main .daily-feels-like {
+.daily-main .daily-weather-desc {
     color: var(--transparent-white);
     font-size: 16px;
     text-align: right;
