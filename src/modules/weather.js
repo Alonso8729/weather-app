@@ -1,5 +1,4 @@
 import { format, parseISO, parse } from 'date-fns'
-import { round } from 'lodash';
 
 const weather = (() => {
     const API_KEY = '62021590287540d6818114957232210';
@@ -33,7 +32,7 @@ const weather = (() => {
             current: {
                 weatherIcon: current.condition.icon,
                 temp: current.temp_c,
-                cloud: current.cloud,
+                cloudiness: current.cloud,
                 weatherDesc: current.condition.text,
                 feelsLike: Math.round(current.feelslike_c),
                 humidity: current.humidity,
@@ -46,9 +45,18 @@ const weather = (() => {
                 chanceOfRain: forecast.forecastday[0].day.daily_chance_of_rain,
                 sunrise: convertTimeTo24HourFormat(forecast.forecastday[0].astro.sunrise),
                 sunset: convertTimeTo24HourFormat(forecast.forecastday[0].astro.sunset),
-            }
+                moonPhase: forecast.forecastday[0].astro.moon_phase,
+            },
+            daily: [],
         }
 
+        //Assign values to upcoming 3 days forecast
+        for (let i = 0; i < 3; i++) {
+            processedData.daily[i] = {
+                day: formatDateToday(forecast.forecastday[i].date),
+                dayIcon: forecast.forecastday[i].condition.icon,
+            }
+        }
 
         return processedData;
     }
@@ -59,9 +67,14 @@ const weather = (() => {
         return formattedDate;
     }
 
-    function convertTimeTo24HourFormat(time){
+    function convertTimeTo24HourFormat(time) {
         const parsedTime = parse(time, timeFormatPattern, new Date());
-    return format(parsedTime, 'HH:mm');
+        return format(parsedTime, 'HH:mm');
+    }
+
+    function formatDateToday(date) {
+        const formattedDate = format(new Date(date), "EEEE");
+        return formattedDate;
     }
 
     return {
