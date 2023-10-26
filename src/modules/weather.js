@@ -55,6 +55,9 @@ const weather = (() => {
             processedData.daily[i] = {
                 day: formatDateToday(forecast.forecastday[i].date),
                 dayIcon: forecast.forecastday[i].condition.icon,
+                dayTemp: Math.round(forecast.forecastday[i].day.avgtemp_c),
+                nightTemp: Math.round(forecast.forecastday[i].day.mintemp_c),
+                weatherDesc: forecast.forecastday[i].day.condition.text,
             }
         }
 
