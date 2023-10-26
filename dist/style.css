@@ -219,8 +219,7 @@ button:hover {
     font-weight: 600;
 }
 
-.weather-feels-like,
-.data-wind {
+.weather-feels-like {
     color: var(--transparent-white);
     font-size: 20px;
     font-weight: 500;
