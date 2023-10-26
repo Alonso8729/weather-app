@@ -15,7 +15,7 @@
 
 <body>
   <div class="wrapper">
-    <nav id="nav">
+    <nav id="nav" class="nav">
       <div class="logo">
         <img src="images/favicon.png" alt="weather icon" class="logo-icon">
         <p class="logo-text">Weather Wizard</p>
@@ -25,73 +25,77 @@
         <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
       </div>
       <div class="temp-buttons">
-        <button class="active">°C, m/s</button>
-        <button>°F, mph</button>
+        <button class="metric-btn">°C, m/s</button>
+        <button class="imperial-btn">°F, mph</button>
       </div>
     </nav>
+
+    <div class="info">
+      <div class="loader hide"></div>
+      <p class="error hide"></p>
+    </div>
 
     <main class="main-container">
       <section class="heading">
         <h1>
-          <span class="data-city">Amsterdam</span>, <span class="data-country">Netherland</span>
+          <span class="data-city"></span>, <span class="data-country"></span>
         </h1>
         <p class="location-details data-time">
-          Tuesday 24 October 2023 | 11:38
         </p>
       </section>
       <section class="weather">
         <div class="weather-main">
-          <span class="weather-icon"><i class="fa-solid fa-cloud-sun"></i></span>
+          <span class="weather-icon"></span>
           <span class="weather-temp">
-            <span class="data-temp">12</span><span class="unit-temp">°C</span>
+            <span class="data-temp"></span>°<span class="unit-temp"></span>
           </span>
         </div>
         <div class="weather-desc">
-          <p class="data-temp-desc">Clear sky</p>
-          <p class="weather-feels-like">Feels like <span class="data-feels-like">32</span><span
-              class="unit-temp">°C</span></p>
-          <p class="data-wind">Light breeze</p>
+          <p class="data-temp-desc"></p>
+          <p class="weather-feels-like">Feels like <span class="data-feels-like"></span>°<span class="unit-temp"></span>
+          </p>
+          <p class="data-wind"></p>
         </div>
       </section>
       <section class="properties">
         <div class="property">
           <p class="property-title">Wind</p>
-          <p><span class="arrow-icon"><i class="fa-solid fa-arrow-up"></i></span> <span
-              class="data-wind-speed">2</span><span class="data-wind-unit">m/s</span>
+          <p><span class="arrow-icon"><i class="fa-solid fa-arrow-up" id="arrow-icon"></i></span> <span
+              class="data-wind-speed"></span><span class="data-wind-unit"></span>
           </p>
         </div>
         <div class="property">
           <p class="property-title">Humidity</p>
-          <p><span class="data-humidity">74</span>%</p>
+          <p><span class="data-humidity"></span>%</p>
         </div>
         <div class="property">
           <p class="property-title">Cloudiness</p>
-          <p><span class="data-cloud">90</span>%</p>
+          <p><span class="data-cloud"></span>%</p>
         </div>
         <div class="property">
           <p class="property-title">UV index</p>
-          <p><span class="data-uvi">5</span></p>
+          <p><span class="data-uvi"></span></p>
         </div>
         <div class="property">
           <p class="property-title">Chance of rain</p>
-          <p><span class="data-rain-chance">5</span>%</p>
+          <p><span class="data-rain-chance"></span>%</p>
         </div>
         <div class="property">
           <p class="property-title">Visibility</p>
-          <p><span class="data-visibility">10km</span></p>
+          <p><span class="data-visibility"></span>km</p>
         </div>
         <div class="property">
           <p class="property-title">Sunrise</p>
-          <p><span class="data-sunrise">06:47</span></p>
+          <p><span class="data-sunrise"></span></p>
         </div>
         <div class="property">
           <p class="property-title">Sunset</p>
-          <p><span class="data-sunset">17:56</span></p>
+          <p><span class="data-sunset"></span></p>
         </div>
 
         <div class="property">
           <p class="property-title">Moon phase</p>
-          <p><span class="data-moon-phase">Waxing Gibbous</span></p>
+          <p><span class="data-moon-phase"></span></p>
         </div>
       </section>
 
@@ -100,52 +104,8 @@
           Upcoming Forecast
         </h2>
         <div class="forecast-list">
-          <div class="day-element">
-            <div class="daily-heading">
-              <h2 class="data-day">Wednesday</h2>
-            </div>
-            <div class="daily-main">
-              <span class="daily-temp">
-                <span class="data-icon"><i class="fa-solid fa-cloud-rain"></i></span>
 
-                <span class="data-day-temp">29</span><span class="daily-day-degree">°</span><span
-                  class="daily-slash">/</span><span class="data-night-temp">22</span><span
-                  class="daily-night-degree">°</span>
-                <p class="daily-feels-like">Feels like <span class="data-feels-like">28</span>°</p>
-
-              </span>
-            </div>
-          </div>
-          <div class="day-element">
-            <div class="daily-heading">
-              <h2 class="data-day">Thursday</h2>
-            </div>
-            <div class="daily-main">
-              <span class="daily-temp">
-                <span class="data-icon"><i class="fa-solid fa-poo-storm"></i></span>
-
-                <span class="data-day-temp">29</span><span class="daily-day-degree">°</span><span
-                  class="daily-slash">/</span><span class="data-night-temp">22</span><span
-                  class="daily-night-degree">°</span>
-                <p class="daily-feels-like">Feels like <span class="data-feels-like">28</span>°</p>
-
-              </span>
-            </div>
-          </div>
-          <div class="day-element">
-            <div class="daily-heading">
-              <h2 class="data-day">Friday</h2>
-            </div>
-            <div class="daily-main">
-              <span class="daily-temp">
-                <span class="data-icon"><i class="fa-solid fa-cloud-moon-rain"></i></span>
-                <span class="data-day-temp">29</span><span class="daily-day-degree">°</span><span
-                  class="daily-slash">/</span><span class="data-night-temp">22</span><span
-                  class="daily-night-degree">°</span>
-                <p class="daily-feels-like">Feels like <span class="data-feels-like">28</span>°</p>
-              </span>
-            </div>
-          </div>
+        </div>
       </section>
     </main>
 
