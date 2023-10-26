@@ -1,4 +1,5 @@
-import { fromUnixTime, format, parseISO } from 'date-fns'
+import { format, parseISO, parse } from 'date-fns'
+import { round } from 'lodash';
 
 const weather = (() => {
     const API_KEY = '62021590287540d6818114957232210';
@@ -27,18 +28,40 @@ const weather = (() => {
         const processedData = {
             city: location.name,
             country: location.country,
+            localTime: formatDate(location.localtime
+            ),
             current: {
-                cloud: current.cloud
+                weatherIcon: current.condition.icon,
+                temp: current.temp_c,
+                cloud: current.cloud,
+                weatherDesc: current.condition.text,
+                feelsLike: Math.round(current.feelslike_c),
+                humidity: current.humidity,
+                windSpeed: Math.round(current.wind_kph),
+                windDegree: current.wind_degree,
+                uv: current.uv,
+                visibility: current.vis_km,
+            },
+            forecast: {
+                chanceOfRain: forecast.forecastday[0].day.daily_chance_of_rain,
+                sunrise: convertTimeTo24HourFormat(forecast.forecastday[0].astro.sunrise),
+                sunset: convertTimeTo24HourFormat(forecast.forecastday[0].astro.sunset),
             }
         }
 
 
+        return processedData;
     }
 
     function formatDate(originalDate) {
         const date = parseISO(originalDate);
-        const formattedDate = format(new Date(date),"EEEE d MMMM yyyy | HH:mm");
+        const formattedDate = format(new Date(date), "EEEE d MMMM yyyy | HH:mm");
         return formattedDate;
+    }
+
+    function convertTimeTo24HourFormat(time){
+        const parsedTime = parse(time, timeFormatPattern, new Date());
+    return format(parsedTime, 'HH:mm');
     }
 
     return {
