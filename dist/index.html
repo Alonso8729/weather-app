@@ -1,120 +1,145 @@
 <html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weather Wizard</title>
+        <script src="main.js" defer></script>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" href="images/favicon.png" />
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather Wizard</title>
-  <script src="main.js" defer></script>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="images/favicon.png" image/x-icon">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+        </style>
+        <script
+            defer
+            src="https://kit.fontawesome.com/1398e6fc0a.js"
+            crossorigin="anonymous"
+        ></script>
+    </head>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
-  </style>
-  <script defer src="https://kit.fontawesome.com/1398e6fc0a.js" crossorigin="anonymous"></script>
-</head>
+    <body>
+        <div class="wrapper">
+            <nav id="nav" class="nav">
+                <div class="logo">
+                    <img
+                        src="images/favicon.png"
+                        alt="weather icon"
+                        class="logo-icon"
+                    />
+                    <p class="logo-text">Weather Wizard</p>
+                </div>
+                <div class="search-div">
+                    <input
+                        type="search"
+                        name="search"
+                        id="search-box"
+                        autocomplete="off"
+                        placeholder="Search City or Postcode"
+                    />
+                    <i
+                        class="fa-solid fa-magnifying-glass"
+                        id="search-icon"
+                    ></i>
+                </div>
+                <div class="temp-buttons">
+                    <button class="metric-btn">°C, m/s</button>
+                    <button class="imperial-btn">°F, mph</button>
+                </div>
+            </nav>
 
-<body>
-  <div class="wrapper">
-    <nav id="nav" class="nav">
-      <div class="logo">
-        <img src="images/favicon.png" alt="weather icon" class="logo-icon">
-        <p class="logo-text">Weather Wizard</p>
-      </div>
-      <div class="search-div">
-        <input type="search" name="search" id="search-box" autocomplete="off" placeholder="Search City or Postcode">
-        <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
-      </div>
-      <div class="temp-buttons">
-        <button class="metric-btn">°C, m/s</button>
-        <button class="imperial-btn">°F, mph</button>
-      </div>
-    </nav>
+            <div class="info">
+                <div class="loader hide"></div>
+                <p class="error hide"></p>
+            </div>
 
-    <div class="info">
-      <div class="loader hide"></div>
-      <p class="error hide"></p>
-    </div>
+            <main class="main-container">
+                <section class="heading">
+                    <h1>
+                        <span class="data-city"></span>,
+                        <span class="data-country"></span>
+                    </h1>
+                    <p class="location-details data-time"></p>
+                </section>
+                <section class="weather">
+                    <div class="weather-main">
+                        <span class="weather-icon"
+                            ><i class="weather-icon"></i
+                        ></span>
+                        <span class="weather-temp">
+                            <span class="data-temp"></span><span>°</span>
+                        </span>
+                    </div>
+                    <div class="weather-desc">
+                        <p class="data-temp-desc"></p>
+                        <p class="weather-feels-like">
+                            Feels like <span class="data-feels-like"></span>°
+                        </p>
+                        <p class="data-wind"></p>
+                    </div>
+                </section>
+                <section class="properties">
+                    <div class="property">
+                        <p class="property-title">Wind</p>
+                        <p>
+                            <span class="arrow-icon"
+                                ><i
+                                    class="fa-solid fa-arrow-up"
+                                    id="arrow-icon"
+                                ></i
+                            ></span>
+                            <span class="data-wind-speed"></span
+                            ><span class="data-wind-unit"></span>
+                        </p>
+                    </div>
+                    <div class="property">
+                        <p class="property-title">Humidity</p>
+                        <p><span class="data-humidity"></span>%</p>
+                    </div>
+                    <div class="property">
+                        <p class="property-title">Cloudiness</p>
+                        <p><span class="data-cloud"></span>%</p>
+                    </div>
+                    <div class="property">
+                        <p class="property-title">UV index</p>
+                        <p><span class="data-uvi"></span></p>
+                    </div>
+                    <div class="property">
+                        <p class="property-title">Chance of rain</p>
+                        <p><span class="data-rain-chance"></span>%</p>
+                    </div>
+                    <div class="property">
+                        <p class="property-title">Visibility</p>
+                        <p><span class="data-visibility"></span></p>
+                    </div>
+                    <div class="property">
+                        <p class="property-title">Sunrise</p>
+                        <p><span class="data-sunrise"></span></p>
+                    </div>
+                    <div class="property">
+                        <p class="property-title">Sunset</p>
+                        <p><span class="data-sunset"></span></p>
+                    </div>
 
-    <main class="main-container">
-      <section class="heading">
-        <h1>
-          <span class="data-city"></span>, <span class="data-country"></span>
-        </h1>
-        <p class="location-details data-time">
-        </p>
-      </section>
-      <section class="weather">
-        <div class="weather-main">
-          <span class="weather-icon"><i class="weather-icon"></i></span>
-          <span class="weather-temp">
-            <span class="data-temp"></span>°</span>
-          </span>
-        </div>
-        <div class="weather-desc">
-          <p class="data-temp-desc"></p>
-          <p class="weather-feels-like">Feels like <span class="data-feels-like"></span>°
-          </p>
-          <p class="data-wind"></p>
-        </div>
-      </section>
-      <section class="properties">
-        <div class="property">
-          <p class="property-title">Wind</p>
-          <p><span class="arrow-icon"><i class="fa-solid fa-arrow-up" id="arrow-icon"></i></span> <span
-              class="data-wind-speed"></span><span class="data-wind-unit"></span>
-          </p>
-        </div>
-        <div class="property">
-          <p class="property-title">Humidity</p>
-          <p><span class="data-humidity"></span>%</p>
-        </div>
-        <div class="property">
-          <p class="property-title">Cloudiness</p>
-          <p><span class="data-cloud"></span>%</p>
-        </div>
-        <div class="property">
-          <p class="property-title">UV index</p>
-          <p><span class="data-uvi"></span></p>
-        </div>
-        <div class="property">
-          <p class="property-title">Chance of rain</p>
-          <p><span class="data-rain-chance"></span>%</p>
-        </div>
-        <div class="property">
-          <p class="property-title">Visibility</p>
-          <p><span class="data-visibility"></span></p>
-        </div>
-        <div class="property">
-          <p class="property-title">Sunrise</p>
-          <p><span class="data-sunrise"></span></p>
-        </div>
-        <div class="property">
-          <p class="property-title">Sunset</p>
-          <p><span class="data-sunset"></span></p>
-        </div>
+                    <div class="property">
+                        <p class="property-title">Moon phase</p>
+                        <p><span class="data-moon-phase"></span></p>
+                    </div>
+                </section>
 
-        <div class="property">
-          <p class="property-title">Moon phase</p>
-          <p><span class="data-moon-phase"></span></p>
+                <section class="forecast">
+                    <h2 class="forecast-title">Upcoming Forecast</h2>
+                    <div class="forecast-list"></div>
+                </section>
+            </main>
+
+            <footer>
+                <p>
+                    Built by
+                    <a href="https://github.com/Alonso8729">Alonso</a> |
+                    <a href="https://github.com/Alonso8729/weather-app"
+                        >Source code</a
+                    >
+                </p>
+            </footer>
         </div>
-      </section>
-
-      <section class="forecast">
-        <h2 class="forecast-title">
-          Upcoming Forecast
-        </h2>
-        <div class="forecast-list">
-
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <p>Built by <a href="https://github.com/Alonso8729">Alonso</a> | <a
-          href="https://github.com/Alonso8729/weather-app">Source code</a></p>
-    </footer>
-
-  </div>
-</body>
-
+    </body>
 </html>
