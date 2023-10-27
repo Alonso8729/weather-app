@@ -1,13 +1,12 @@
 
-
 module.exports = {
     env: {
         browser: true,
         commonjs: true,
         es2021: true,
     },
-    extends: ['eslint:recommended', "some-other-config-you-use",
-        "prettier", "airbnb"],
+    extends: ['eslint:recommended',
+        "prettier"],
     overrides: [
         {
             env: {
@@ -15,12 +14,13 @@ module.exports = {
             },
             files: ['.eslintrc.{js,cjs}'],
             parserOptions: {
-                sourceType: 'script',
+                sourceType: 'module',
             },
         },
     ],
     parserOptions: {
         ecmaVersion: 'latest',
+        sourceType: 'module'
     },
     rules: {
         'no-unused-vars': 'off',
