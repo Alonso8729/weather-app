@@ -1,4 +1,5 @@
 import { format, parseISO, parse } from 'date-fns';
+import weather from './weather';
 
 const dom = (() => {
     const mainContainer = document.querySelector('.main-container');
@@ -63,6 +64,7 @@ const dom = (() => {
         const temp = document.querySelector('.data-temp');
         const tempDescription = document.querySelector('.data-temp-desc');
         const feelsLike = document.querySelector('.data-feels-like');
+        const windDesc = document.querySelector('.data-wind')
         const windArrow = document.getElementById('arrow-icon');
         const windSpeed = document.querySelector('.data-wind-speed');
         const windUnit = document.querySelector('.data-wind-unit');
@@ -77,7 +79,7 @@ const dom = (() => {
 
         dataCity.textContent = city;
         dataCountry.textContent = country;
-        //time.textContent = localTime;
+        time.textContent = localTime;
         temp.textContent = current.temp;
         tempDescription.textContent = current.weatherDesc;
         feelsLike.textContent = current.feelsLike;
@@ -95,6 +97,9 @@ const dom = (() => {
 
         //use converting functions for weather icon
         weatherIcon.className = `weather-icon ${convertToIcon(current.weatherIcon)}`
+        windDesc.textContent = getWindDescription(current.windSpeed, units);
+        uvi.className = `${getUviColor(current.uvi)}`
+
     }
 
     function convertToIcon(iconCode) {
@@ -163,7 +168,113 @@ const dom = (() => {
     }
 
     function displayUpcomingForecast(daily, units) {
+        const daysList = document.querySelector('.forecast-list');
+        daysList.textContent = '';
+        for (let i = 0; i < 3; i++) {
+            //Declare variables
+            const dayElement = document.createElement('div');
+            const dayHeading = document.createElement('div');
+            const dailyMain = document.createElement('div');
+            const dailyWeatherDesc = document.createElement('div');
+            const dayData = document.createElement('span');
+            const dataIcon = document.createElement('i');
+            const dayTemp = document.createElement('span');
+            const nightTemp = document.createElement('span');
+            const dayDegree = document.createElement('span');
+            const nightDegree = document.createElement('span');
+            const slash = document.createElement('span');
 
+            //Add classes
+            dayElement.classList.add('day-element');
+            dayHeading.classList.add('daily-heading');
+            dailyMain.classList.add('daily-main');
+            dailyWeatherDesc.classList.add('daily-weather-desc');
+            dayData.classList.add('data-day');
+            dataIcon.classList.add('data-icon');
+            dayTemp.classList.add('data-day-temp');
+            nightTemp.classList.add('data-night-temp');
+            dayDegree.classList.add('daily-day-degree');
+            nightDegree.classList.add('daily-night-degree');
+            slash.classList.add('daily-slash');
+
+            //Add text content
+            dayData.textContent = daily[i].day;
+            dailyWeatherDesc.textContent = daily[i].weatherDesc;
+            dataIcon.className = `data-icon ${convertToIcon(daily[i].dayIcon)}`;
+            dayTemp.textContent = daily[i].dayTemp;
+            nightTemp.textContent = daily[i].nightTemp;
+            dayDegree.textContent = '°';
+            nightDegree.textContent = '°';
+            slash.textContent = '/';
+
+            //Appending
+            dayHeading.appendChild(dayData);
+            dailyMain.appendChild(dataIcon);
+            dailyMain.appendChild(dayTemp);
+            dailyMain.appendChild(dayDegree);
+            dailyMain.appendChild(slash);
+            dailyMain.appendChild(nightTemp);
+            dailyMain.appendChild(nightDegree);
+
+            dayElement.appendChild(dayHeading);
+            dayElement.appendChild(dailyMain);
+
+            daysList.appendChild(dayElement)
+        }
+    }
+    function getWindDescription(windSpeed, units) {
+        let speed = windSpeed;
+        if (units === "imperial") {
+            speed *= 0.44704;
+        }
+        let windDesc;
+        if (windSpeed < 0.5) {
+            windDesc = 'Calm';
+        } else if (speed < 1.6) {
+            windDesc = 'Light air';
+        } else if (speed < 3.4) {
+            windDesc = 'Light breeze';
+        } else if (speed < 5.6) {
+            windDesc = 'Gentle breeze';
+        } else if (speed < 8) {
+            windDesc = 'Moderate breeze';
+        } else if (speed < 10.8) {
+            windDesc = 'Fresh breeze';
+        } else if (speed < 13.9) {
+            windDesc = 'Strong breeze';
+        } else if (speed < 17.2) {
+            windDesc = 'High wind';
+        } else if (speed < 20.8) {
+            windDesc = 'Gale';
+        } else if (speed < 24.5) {
+            windDesc = 'Strong gale';
+        } else if (speed < 28.5) {
+            windDesc = 'Storm';
+        } else if (speed < 32.7) {
+            windDesc = 'Violent storm';
+        } else if (speed >= 32.7) {
+            windDesc = 'Hurricane';
+        }
+
+        return windDesc;
+
+    }
+
+    function getUviColor(uvi) {
+        let color = '';
+        if (uvi <= 2) {
+            color = 'data-uvi uvi-green'
+        }
+        else if (uvi <= 5) {
+            color = 'data-uvi uvi-yellow';
+        }
+        else if (uvi <= 7) {
+            color = 'data-uvi uvi-orange';
+        }
+        else if (uvi > 7) {
+            color = 'data-uvi uvi-red';
+        }
+        return color;
     }
 
     return {
