@@ -1,5 +1,4 @@
 import { format, parseISO, parse } from 'date-fns';
-import weather from './weather';
 
 const dom = (() => {
     const mainContainer = document.querySelector('.main-container');
@@ -43,11 +42,15 @@ const dom = (() => {
     function setUnit(units) {
         const metricButton = document.querySelector('.metric-btn');
         const imperialButton = document.querySelector('.imperial-btn');
+        const degreeElements = document.querySelectorAll('.degree-element');
+        const speedElements = document.querySelectorAll('.speed-element');
 
         if (units === "metric") {
             imperialButton.classList.remove('active');
             metricButton.classList.add('active');
             //Set units element to metric unit
+
+
         }
         else if (units === "imperial") {
             metricButton.classList.remove('active');
@@ -88,7 +91,7 @@ const dom = (() => {
         units === 'metric' ? windUnit.textContent = 'm/s' : windUnit.textContent = 'mph';
         humidity.textContent = current.humidity;
         cloudiness.textContent = current.humidity;
-        visibility.textContent = current.visibility;
+        units === 'metric' ? visibility.textContent = `${current.visibility}km` : visibility.textContent = `${current.visibility}m/s`;
         uvi.textContent = current.uvi;
         rainChance.textContent = forecast.chanceOfRain;
         sunrise.textContent = forecast.sunrise;
@@ -255,9 +258,7 @@ const dom = (() => {
         } else if (speed >= 32.7) {
             windDesc = 'Hurricane';
         }
-
         return windDesc;
-
     }
 
     function getUviColor(uvi) {
