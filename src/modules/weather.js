@@ -1,4 +1,3 @@
-import { format, parseISO, parse } from 'date-fns';
 import dom from './dom.js'
 
 const weather = (() => {
