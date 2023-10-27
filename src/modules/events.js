@@ -1,4 +1,5 @@
 import dom from './dom.js';
+import weather from './weather.js';
 
 const events = (() => {
 
@@ -26,10 +27,13 @@ const events = (() => {
             }
 
         })
+    }
 
-        async function load(input, unit) {
-
-        }
+    async function load(input = 'haifa', units = 'metric') {
+        dom.toggleLoader('loading');
+        const data = await weather.getLocationData(input, units);
+        dom.handleWeatherData(data, units);
+        dom.toggleLoader('done');
     }
 
     return {
