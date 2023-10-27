@@ -36,6 +36,7 @@ button:hover {
 }
 
 
+
 .wrapper {
     display: grid;
     min-height: 100vh;
@@ -206,6 +207,7 @@ button:hover {
     color: var(--white);
     font-size: 60px;
     gap: 5px;
+    align-items: center;
 }
 
 .weather-desc {
@@ -219,7 +221,8 @@ button:hover {
     font-weight: 600;
 }
 
-.weather-feels-like {
+.weather-feels-like,
+.data-wind {
     color: var(--transparent-white);
     font-size: 20px;
     font-weight: 500;
