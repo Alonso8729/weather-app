@@ -42,20 +42,14 @@ const dom = (() => {
     function setUnit(units) {
         const metricButton = document.querySelector('.metric-btn');
         const imperialButton = document.querySelector('.imperial-btn');
-        const degreeElements = document.querySelectorAll('.degree-element');
-        const speedElements = document.querySelectorAll('.speed-element');
 
         if (units === "metric") {
             imperialButton.classList.remove('active');
             metricButton.classList.add('active');
-            //Set units element to metric unit
-
-
         }
         else if (units === "imperial") {
             metricButton.classList.remove('active');
             imperialButton.classList.add('active')
-            //Set units element to imperial unit
         }
     }
 
@@ -138,7 +132,7 @@ const dom = (() => {
             case 1276:
             case 1279:
             case 1282:
-                return "fa-solid fa-poo-storm";
+                return "fa-solid fa-cloud-bolt";
             case 1204:
             case 1213:
             case 1216:

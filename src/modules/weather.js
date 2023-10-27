@@ -3,7 +3,7 @@ import dom from './dom.js'
 const weather = (() => {
     const API_KEY = '62021590287540d6818114957232210';
 
-    async function getLocationData(input) {
+    async function getLocationData(input, units) {
         try {
             const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${input}&days=3`, { mode: 'cors' })
             const locationData = await response.json();
@@ -12,7 +12,7 @@ const weather = (() => {
                 return locationData;
             }
             else {
-                return (processData(locationData));
+                return (processData(locationData, units));
             }
         }
         catch (error) {
@@ -20,7 +20,7 @@ const weather = (() => {
         }
     }
 
-    async function processData(data) {
+    async function processData(data, units) {
         console.log(data);
 
         const { location, current, forecast } = data;
@@ -31,16 +31,16 @@ const weather = (() => {
             ),
             current: {
                 weatherIcon: current.condition.code,
-                temp: Math.round(current.temp_c),
+                temp: units === 'metric' ? Math.round(current.temp_c) : Math.round(current.temp_f),
                 icon: current.condition.icon,
                 cloudiness: current.cloud,
                 weatherDesc: current.condition.text,
-                feelsLike: Math.round(current.feelslike_c),
+                feelsLike: units === 'metric' ? Math.round(current.feelslike_c) : Math.round(current.feelslike_f),
                 humidity: current.humidity,
-                windSpeed: Math.round(current.wind_kph),
+                windSpeed: units === 'metric' ? Math.round(current.wind_kph) : Math.round(current.wind_mph),
                 windDegree: current.wind_degree,
                 uvi: current.uv,
-                visibility: current.vis_km,
+                visibility: units === 'metric' ? current.vis_km : current.vis_miles,
             },
             forecast: {
                 chanceOfRain: forecast.forecastday[0].day.daily_chance_of_rain,
@@ -56,8 +56,8 @@ const weather = (() => {
             processedData.daily[i] = {
                 day: dom.formatDateToDay(forecast.forecastday[i].date),
                 dayIcon: forecast.forecastday[i].day.condition.code,
-                dayTemp: Math.round(forecast.forecastday[i].day.avgtemp_c),
-                nightTemp: Math.round(forecast.forecastday[i].day.mintemp_c),
+                dayTemp: units === 'metric' ? Math.round(forecast.forecastday[i].day.avgtemp_c) : Math.round(forecast.forecastday[i].day.avgtemp_f),
+                nightTemp: units === 'metric' ? Math.round(forecast.forecastday[i].day.mintemp_c) : Math.round(forecast.forecastday[i].day.mintemp_f),
                 weatherDesc: forecast.forecastday[i].day.condition.text,
             }
         }

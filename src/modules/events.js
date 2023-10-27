@@ -9,12 +9,11 @@ const events = (() => {
 
         nav.addEventListener('click', async (event) => {
             const { target } = event;
-            let input;
+            let input = searchBox.value;
             let unitType
 
             if (target.getAttribute('id') === 'search-icon') {
                 event.preventDefault();
-                input = searchBox.value;
                 load(input, unitType);
             }
             else if (target.classList.contains('metric-btn')) {
