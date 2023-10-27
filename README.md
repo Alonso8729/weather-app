@@ -5,7 +5,8 @@ information for locations around the world. Users can search for a specific city
 or location to get current weather data, including temperature, wind speed,
 humidity, cloudiness, UV index, and more.
 
-[Live Preview]![image](https://github.com/Alonso8729/weather-app/assets/119747342/db9e69e5-6a54-44f3-a025-fc0d298d62e3)
+[Live Preview]![image](https://github.com/Alonso8729/weather-app/assets/119747342/fa01cd4a-16f1-45de-994f-88787299f2ee)
+
 
 
 ## Features
