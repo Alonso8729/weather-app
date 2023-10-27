@@ -69,13 +69,12 @@ button:hover {
 
 .logo-text {
     color: var(--white);
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 700;
 }
 
 .logo-icon {
-    width: 32px;
-    width: 42px;
+    width: 2.5rem;
 }
 
 .search-div {
@@ -87,12 +86,12 @@ button:hover {
 
 #search-box {
     padding: 8px 50px 5px 10px;
-    border-radius: 30px;
+    border-radius: 2rem;
     border: 3px solid transparent;
     background-color: var(--indigo);
     width: 300px;
     color: var(--white);
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
 }
 
@@ -102,7 +101,7 @@ button:hover {
 }
 
 #search-box::placeholder {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
 }
 
@@ -134,7 +133,7 @@ button:hover {
     border-radius: 30px;
     padding: 5px 20px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 1rem;
 }
 
 /*info*/
@@ -149,7 +148,7 @@ button:hover {
     color: var(--red);
     font-weight: 600;
     background-color: var(--white);
-    border-radius: 30px;
+    border-radius: 2rem;
     padding: 8px 10px;
 }
 
@@ -174,7 +173,7 @@ button:hover {
     justify-items: center;
     grid-template-columns: auto 1fr;
     grid-template-rows: repeat(3, minmax(min-content, max-content));
-    gap: 50px;
+    gap: 3rem;
     margin: 15px 30px 30px 30px;
 }
 
@@ -186,12 +185,12 @@ button:hover {
 
 .heading>h1 {
     color: var(--white);
-    font-size: 36px;
+    font-size: 2rem;
 }
 
 .location-details {
     color: var(--transparent-white);
-    font-size: 22px;
+    font-size: 1.4rem;
     font-weight: 600;
 }
 
@@ -202,13 +201,13 @@ button:hover {
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin-top: 15px;
+    margin-top: 1rem;
 }
 
 .weather-main {
     display: flex;
     color: var(--white);
-    font-size: 60px;
+    font-size: 4rem;
     gap: 8px;
     align-items: baseline;
 }
@@ -220,9 +219,9 @@ button:hover {
 
 .data-temp-desc {
     color: var(--white);
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 600;
-    max-width: 20 0px;
+    max-width: 20px 0px;
 }
 
 .weather-feels-like,
@@ -251,13 +250,13 @@ button:hover {
 
 .property> :nth-child(2) {
     color: var(--white);
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
 .property-title {
     color: var(--transparent-white);
-    font-size: 18px;
+    font-size: 1rem;
 }
 
 #arrow-icon {
@@ -291,15 +290,15 @@ button:hover {
     grid-area: forecast;
     width: 100%;
     max-width: 750px;
-    margin-top: 15px;
+    margin-top: 1rem;
 }
 
 .forecast-title {
     color: var(--white);
-    font-size: 36px;
+    font-size: 2rem;
     font-weight: 600;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
 }
 
 .forecast-list {
@@ -326,13 +325,13 @@ button:hover {
 
 .data-day {
     color: var(--white);
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 600;
 }
 
 .daily-main .daily-weather-desc {
     color: var(--transparent-white);
-    font-size: 16px;
+    font-size: 1rem;
     text-align: right;
 }
 
@@ -345,20 +344,20 @@ button:hover {
 .day-element .data-day-temp,
 .day-element .daily-day-degree {
     color: var(--white);
-    font-size: 40px;
+    font-size: 2.5rem;
 }
 
 .day-element .data-icon {
     padding-right: 7px;
     color: var(--white);
-    font-size: 40px;
+    font-size: 2.5rem;
 }
 
 .data-night-temp,
 .daily-slash,
 .daily-night-degree {
     color: var(--transparent-white);
-    font-size: 20px;
+    font-size: 1.3rem;
 }
 
 
@@ -367,7 +366,7 @@ footer {
     grid-area: footer;
     text-align: center;
     color: var(--transparent-white);
-    font-size: 18px;
+    font-size: 1rem;
     margin-top: 20px;
 }
 
@@ -395,5 +394,40 @@ footer a:hover {
         grid-template-areas: '. logo .'
             '. search .'
             '. buttons. ';
+        row-gap: 15px;
+        padding: 10px;
+        padding-bottom: 20px;
     }
+
+    .temp-buttons {
+        justify-self: center;
+    }
+
+    .wrapper {}
+
+    .main-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, minmax(min-content, max-content));
+        grid-template-areas: 'header'
+            'weather'
+            'properties'
+            'forecast';
+    }
+
+    .heading {
+        padding-top: 20px;
+    }
+
+    .weather {
+
+        flex-direction: row;
+    }
+
+}
+
+@media only screen and (max-width:650px) {
+    .weather {
+        flex-direction: column;
+    }
+
 }
