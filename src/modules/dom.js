@@ -1,3 +1,4 @@
+/* eslint-disable no-duplicate-case */
 import { format, parseISO, parse } from 'date-fns';
 
 const dom = (() => {
