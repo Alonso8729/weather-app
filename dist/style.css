@@ -5,6 +5,9 @@
     --white: #fff;
     --indigo: #1e1b4b;
     --red: rgb(199, 36, 36);
+    --yellow: rgb(211, 211, 31);
+    --green: rgb(23, 174, 23);
+    --orange: rgb(254, 171, 15);
 }
 
 *,
@@ -172,7 +175,7 @@ button:hover {
     grid-template-columns: auto 1fr;
     grid-template-rows: repeat(3, minmax(min-content, max-content));
     gap: 50px;
-    margin: 30px;
+    margin: 15px 30px 30px 30px;
 }
 
 /*HEADING SECTION*/
@@ -260,6 +263,27 @@ button:hover {
     transform: rotate(0deg);
 }
 
+.data-uvi {
+    padding: 1px 10px;
+    border-radius: 30px;
+}
+
+.uvi-red {
+    background-color: var(--red);
+}
+
+.uvi-orange {
+    background-color: var(--orange);
+}
+
+.uvi-yellow {
+    background-color: var(--yellow);
+}
+
+.uvi-green {
+    background-color: var(--green);
+}
+
 /*FORECAST SECTION*/
 
 .forecast {
@@ -293,14 +317,16 @@ button:hover {
     text-align: center;
     border: 3px solid var(--white);
     border-radius: 10px;
-    padding: 10px 30px;
+    padding: 15px 30px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.daily-heading .data-day {
+.data-day {
     color: var(--white);
+    font-size: 32px;
+    font-weight: 600;
 }
 
 .daily-main .daily-weather-desc {
@@ -312,7 +338,7 @@ button:hover {
 .daily-main {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
 }
 
 .day-element .data-day-temp,
@@ -324,7 +350,7 @@ button:hover {
 .day-element .data-icon {
     padding-right: 7px;
     color: var(--white);
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .data-night-temp,
@@ -333,8 +359,6 @@ button:hover {
     color: var(--transparent-white);
     font-size: 20px;
 }
-
-
 
 
 /*FOOTER*/
