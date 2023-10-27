@@ -27,8 +27,8 @@ const weather = (() => {
         const processedData = {
             city: location.name,
             country: location.country,
-            // localTime: formatDate(location.localtime
-            // ),
+            localTime: dom.formatDate(location.localtime
+            ),
             current: {
                 weatherIcon: current.condition.code,
                 temp: current.temp_c,
@@ -65,10 +65,48 @@ const weather = (() => {
         return processedData;
     }
 
+    function getWindDescription(windSpeed, units) {
+        let speed = windSpeed;
+        if (units === "imperial") {
+            speed *= 0.44704;
+        }
+        let windDesc;
+        if (windSpeed < 0.5) {
+            windDesc = 'Calm';
+        } else if (speed < 1.6) {
+            windDesc = 'Light air';
+        } else if (speed < 3.4) {
+            windDesc = 'Light breeze';
+        } else if (speed < 5.6) {
+            windDesc = 'Gentle breeze';
+        } else if (speed < 8) {
+            windDesc = 'Moderate breeze';
+        } else if (speed < 10.8) {
+            windDesc = 'Fresh breeze';
+        } else if (speed < 13.9) {
+            windDesc = 'Strong breeze';
+        } else if (speed < 17.2) {
+            windDesc = 'High wind';
+        } else if (speed < 20.8) {
+            windDesc = 'Gale';
+        } else if (speed < 24.5) {
+            windDesc = 'Strong gale';
+        } else if (speed < 28.5) {
+            windDesc = 'Storm';
+        } else if (speed < 32.7) {
+            windDesc = 'Violent storm';
+        } else if (speed >= 32.7) {
+            windDesc = 'Hurricane';
+        }
+
+        return windDesc;
+
+    }
+
 
 
     return {
-        getLocationData,
+        getLocationData, getWindDescription
     }
 
 })();
