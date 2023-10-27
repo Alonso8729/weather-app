@@ -5,7 +5,7 @@
     --white: #fff;
     --indigo: #1e1b4b;
     --red: rgb(199, 36, 36);
-    --yellow: rgb(211, 211, 31);
+    --yellow: rgb(210, 210, 26);
     --green: rgb(23, 174, 23);
     --orange: rgb(254, 171, 15);
 }
@@ -209,8 +209,8 @@ button:hover {
     display: flex;
     color: var(--white);
     font-size: 60px;
-    gap: 5px;
-    align-items: center;
+    gap: 8px;
+    align-items: baseline;
 }
 
 .weather-desc {
@@ -222,6 +222,7 @@ button:hover {
     color: var(--white);
     font-size: 24px;
     font-weight: 600;
+    max-width: 20 0px;
 }
 
 .weather-feels-like,
@@ -364,6 +365,19 @@ button:hover {
 /*FOOTER*/
 footer {
     grid-area: footer;
+    text-align: center;
+    color: var(--transparent-white);
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 @keyframes spin {
@@ -373,5 +387,13 @@ footer {
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@media only screen and (max-width:1000px) {
+    #nav {
+        grid-template-areas: '. logo .'
+            '. search .'
+            '. buttons. ';
     }
 }
