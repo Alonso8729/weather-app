@@ -98,7 +98,6 @@ button:hover {
 
 #search-box:focus {
     outline: 3px solid var(--white);
-
 }
 
 #search-box::placeholder {
@@ -462,4 +461,9 @@ footer a:hover {
     .forecast {
         margin-top: 2rem;
     }
+
+    #search-box:focus {
+        outline: none;
+    }
+    
 }
