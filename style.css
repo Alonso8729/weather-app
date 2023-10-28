@@ -460,4 +460,8 @@ footer a:hover {
     .forecast {
         margin-top: 2rem;
     }
+
+    #search-box:focus {
+        outline: none;
+    }
 }
