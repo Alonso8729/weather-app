@@ -11,7 +11,10 @@ const events = (() => {
         nav.addEventListener('click', async (event) => {
             const { target } = event;
 
-            if (target.getAttribute('id') === 'search-icon') {
+            if (
+                target.getAttribute('id') === 'search-icon' ||
+                target.classList.contains('search-icon-div')
+            ) {
                 event.preventDefault();
                 input = searchBox.value;
                 load(input, unitType);
