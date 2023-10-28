@@ -21,6 +21,7 @@
 body {
     background-image: linear-gradient(to bottom, var(--light-blue), var(--dark-blue));
     font-family: 'Nunito', sans-serif;
+    min-height: 100vh;
 }
 
 /*GENERAL*/
@@ -445,4 +446,10 @@ footer a:hover {
 
 
 
+}
+
+@media only screen and (max-width:380px) {
+    .properties {
+        margin-bottom: 50px;
+    }
 }
