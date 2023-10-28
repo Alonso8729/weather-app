@@ -443,9 +443,13 @@ footer a:hover {
         flex-direction: column;
         padding: 0;
     }
+    .properties {
+        margin-bottom: 50px;
+    }
 
-
-
+    .forecast {
+        margin-top: 2rem;
+    }
 }
 
 @media only screen and (max-width: 380px) and (min-width: 200px) {
