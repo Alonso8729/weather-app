@@ -454,7 +454,7 @@ footer a:hover {
 
 }
 
-@media only screen and (max-width: 250px) and (min-width: 0px) {
+@media only screen and (max-width: 380px) and (min-width: 0px) {
     .properties {
         margin-bottom: 50px;
     }
