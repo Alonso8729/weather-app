@@ -452,4 +452,8 @@ footer a:hover {
     .properties {
         margin-bottom: 50px;
     }
+
+    .forecast-title {
+        margin-top: 2rem;
+    }
 }
