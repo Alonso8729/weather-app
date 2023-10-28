@@ -8,7 +8,7 @@ module.exports = {
     tabWidth: 4,
     requireConfig: false,
     useTabs: false,
-    trailingComma: 'none',
+    trailingComma: 'all',
     bracketSpacing: true,
     jsxBracketSameLine: false,
     'editor.formatOnSave': true,
