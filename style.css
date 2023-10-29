@@ -98,7 +98,6 @@ button:hover {
 
 #search-box:focus {
     outline: 3px solid var(--white);
-
 }
 
 #search-box::placeholder {
@@ -443,13 +442,44 @@ footer a:hover {
         flex-direction: column;
         padding: 0;
     }
+    .properties {
+        margin-bottom: 50px;
+    }
 
+    .forecast {
+        margin-top: 2rem;
+    }
 
 
 }
 
-@media only screen and (max-width:380px) {
+@media only screen and (max-width: 480px) and (min-width: 0px) {
     .properties {
         margin-bottom: 50px;
+    }
+
+    .forecast {
+        margin-top: 2rem;
+    }
+
+    #search-box:focus {
+        outline: none;
+    }
+    @supports (-webkit-touch-callout: none) {
+          .properties {
+        margin-bottom: 50px;
+    }
+
+    .forecast {
+        margin-top: 2rem;
+    }
+
+    #search-box:focus {
+        outline: none;
+    }
+
+        input[type="search"]::-webkit-search-results-decoration {
+        display: none; /* Hide the default search icon */
+    }
     }
 }
