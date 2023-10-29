@@ -1,13 +1,13 @@
+![image](https://github.com/Alonso8729/weather-app/assets/119747342/fa01cd4a-16f1-45de-994f-88787299f2ee)
+
+
+
 # Weather Wizard
 
 Weather Wizard is a simple web application that provides real-time weather
 information for locations around the world. Users can search for a specific city
 or location to get current weather data, including temperature, wind speed,
 humidity, cloudiness, UV index, and more.
-
-[Live Preview]![image](https://github.com/Alonso8729/weather-app/assets/119747342/fa01cd4a-16f1-45de-994f-88787299f2ee)
-
-
 
 ## Features
 
