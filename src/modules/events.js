@@ -18,15 +18,12 @@ const events = (() => {
                 event.preventDefault();
                 input = searchBox.value;
                 load(input, unitType);
-                console.log(input, unitType);
             } else if (target.classList.contains('metric-btn')) {
                 unitType = 'metric';
                 load(input, unitType);
-                console.log(input, unitType);
             } else if (target.classList.contains('imperial-btn')) {
                 unitType = 'imperial';
                 load(input, unitType);
-                console.log(input, unitType);
             }
         });
     }

@@ -23,7 +23,6 @@ const weather = (() => {
 
     async function processData(data, units) {
         const { location, current, forecast } = data;
-        console.log(location);
         const processedData = {
             city: location.name,
             country: location.country,
