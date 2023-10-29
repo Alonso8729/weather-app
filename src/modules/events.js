@@ -13,7 +13,7 @@ const events = (() => {
 
             if (
                 target.getAttribute('id') === 'search-icon' ||
-                target.classList.contains('search-icon-div')
+                target.childElement.classList.contains('search-submit')
             ) {
                 event.preventDefault();
                 input = searchBox.value;
