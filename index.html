@@ -1,5 +1,7 @@
 <html>
     <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Weather Wizard</title>
         <script src="main.js" defer></script>
@@ -27,7 +29,7 @@
                     />
                     <p class="logo-text">Weather Wizard</p>
                 </div>
-                <div class="search-div">
+                <form class="search-div" method="GET">
                     <input
                         type="search"
                         name="search"
@@ -35,13 +37,13 @@
                         autocomplete="off"
                         placeholder="Search City or Postcode"
                     />
-                    <div class="search-icon-div">
+                    <button type="button" class="search-submit">
                         <i
                             class="fa-solid fa-magnifying-glass"
                             id="search-icon"
                         ></i>
-                    </div>
-                </div>
+                    </button>
+                </form>
                 <div class="temp-buttons">
                     <button class="metric-btn">°C, m/s</button>
                     <button class="imperial-btn">°F, mph</button>
