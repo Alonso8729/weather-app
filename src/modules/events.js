@@ -26,6 +26,14 @@ const events = (() => {
                 load(input, unitType);
             }
         });
+
+        searchBox.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                input = searchBox.value;
+                load(input, unitType);
+            }
+        });
     }
 
     async function load(input = 'haifa', units = 'metric') {
